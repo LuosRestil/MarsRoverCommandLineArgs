@@ -35,7 +35,7 @@ public class Rover {
     public boolean setPosition(String positionString, List<Rover> rovers, List<Rover> destroyedRovers) {
         String[] position = positionString.split(" ");
         if (position.length != 3) {
-            System.out.println("ERROR: INVALID ROVER POSITION");
+            System.out.println("ERROR: INVALID ROVER POSITION, ROVER WILL NOT BE ADDED TO SIMULATION");
             return false;
         }
         try {
@@ -43,7 +43,7 @@ public class Rover {
             int yCoord = Integer.parseInt(position[1]);
             char heading = position[2].toUpperCase().charAt(0);
             if (heading != 'N' && heading != 'S' && heading != 'E' && heading != 'W') {
-                System.out.println("ERROR: INVALID ROVER POSITION");
+                System.out.println("ERROR: INVALID ROVER POSITION, ROVER WILL NOT BE ADDED TO SIMULATION");
                 return false;
             }
             for (Rover rover : rovers) {
@@ -61,7 +61,7 @@ public class Rover {
             this.heading = heading;
             return true;
         } catch (NumberFormatException e){
-            System.out.println("ERROR: INVALID ROVER POSITION");
+            System.out.println("ERROR: INVALID ROVER POSITION, ROVER WILL NOT BE ADDED TO SIMULATION");
             return false;
         }
     }
